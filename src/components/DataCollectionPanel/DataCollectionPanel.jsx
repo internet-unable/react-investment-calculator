@@ -1,7 +1,7 @@
 export default function DataCollectionPanel() {
     return (
         <div id="user-input">
-            <ul>
+            <ul className="input-group">
                 <li>
                     <label>Initial investment</label>
                     <input type="number" />
