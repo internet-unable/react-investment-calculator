@@ -26,13 +26,12 @@ export default function Content() {
 
     return (
         <>
-            <div id="user-input">
+            <section id="user-input">
                 <ul className="input-group">
                     <li>
                         <Input
                             id={objOfId.initialInvestment}
                             label="Initial investment"
-                            type="number"
                             initValue={params.initialInvestment}
                             onValueChange={handleValueChange}
                         />
@@ -42,7 +41,6 @@ export default function Content() {
                         <Input
                             id={objOfId.annualInvestment}
                             label="Annual investment"
-                            type="number"
                             initValue={params.annualInvestment}
                             onValueChange={handleValueChange}
                         />
@@ -54,7 +52,6 @@ export default function Content() {
                         <Input
                             id={objOfId.expectedReturn}
                             label="Expected return"
-                            type="number"
                             initValue={params.expectedReturn}
                             onValueChange={handleValueChange}
                         />
@@ -64,13 +61,12 @@ export default function Content() {
                         <Input
                             id={objOfId.duration}
                             label="Duration"
-                            type="number"
                             initValue={params.duration}
                             onValueChange={handleValueChange}
                         />
                     </li>
                 </ul>
-            </div>
+            </section>
 
             <Table data={params} />
         </>

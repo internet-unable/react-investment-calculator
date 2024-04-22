@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Input({ id, label, type, initValue, onValueChange }) {
+export default function Input({ id, label, initValue, onValueChange }) {
     const [value, setValue] = useState(initValue);
 
     function handleValueChange(event) {
@@ -13,10 +13,11 @@ export default function Input({ id, label, type, initValue, onValueChange }) {
             <label htmlFor={id}>{label}</label>
             <input
                 id={id}
-                type={type}
+                type="number"
                 value={value}
                 onChange={handleValueChange}
                 placeholder={label}
+                required
             />
         </>
     );
