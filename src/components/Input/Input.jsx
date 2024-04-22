@@ -17,6 +17,7 @@ export default function Input({ id, label, initValue, onUserInputChange }) {
                 value={value}
                 onChange={handleValueChange}
                 placeholder={label}
+                min="1"
                 required
             />
         </>

@@ -16,6 +16,7 @@ export default function Content() {
         [objOfId.expectedReturn]: 6,
         [objOfId.duration]: 10
     });
+    const isDurationEnough = userInput.duration >= 1;
 
     function handleUserInputChange(id, value) {
         setUserInput(prevUserInput => {
@@ -70,7 +71,8 @@ export default function Content() {
                 </ul>
             </section>
 
-            <Table data={userInput} />
+            {!isDurationEnough && <p className="center">Please, enter a duration greater then zero.</p>}
+            {isDurationEnough && <Table data={userInput} />}
         </>
     );
 }
