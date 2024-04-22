@@ -10,7 +10,7 @@ const objOfId = {
 }
 
 export default function Content() {
-    const [ params, setParams ] = useState({
+    const [ userInput, setUserInput ] = useState({
         [objOfId.initialInvestment]: 10000,
         [objOfId.annualInvestment]: 1200,
         [objOfId.expectedReturn]: 6,
@@ -18,8 +18,8 @@ export default function Content() {
     });
 
     function handleValueChange(id, value) {
-        setParams(params => ({
-            ...params,
+        setUserInput(userInput => ({
+            ...userInput,
             [id]: +value
         }));
     }
@@ -32,7 +32,7 @@ export default function Content() {
                         <Input
                             id={objOfId.initialInvestment}
                             label="Initial investment"
-                            initValue={params.initialInvestment}
+                            initValue={userInput.initialInvestment}
                             onValueChange={handleValueChange}
                         />
                     </li>
@@ -41,7 +41,7 @@ export default function Content() {
                         <Input
                             id={objOfId.annualInvestment}
                             label="Annual investment"
-                            initValue={params.annualInvestment}
+                            initValue={userInput.annualInvestment}
                             onValueChange={handleValueChange}
                         />
                     </li>
@@ -52,7 +52,7 @@ export default function Content() {
                         <Input
                             id={objOfId.expectedReturn}
                             label="Expected return"
-                            initValue={params.expectedReturn}
+                            initValue={userInput.expectedReturn}
                             onValueChange={handleValueChange}
                         />
                     </li>
@@ -61,14 +61,14 @@ export default function Content() {
                         <Input
                             id={objOfId.duration}
                             label="Duration"
-                            initValue={params.duration}
+                            initValue={userInput.duration}
                             onValueChange={handleValueChange}
                         />
                     </li>
                 </ul>
             </section>
 
-            <Table data={params} />
+            <Table data={userInput} />
         </>
     );
 }
