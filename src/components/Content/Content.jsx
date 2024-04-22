@@ -21,7 +21,7 @@ export default function Content() {
         setUserInput(prevUserInput => {
             return {
                 ...prevUserInput,
-                [id]: +value
+                [id]: +value // transform value into number
             }
         });
     }
