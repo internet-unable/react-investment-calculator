@@ -1,18 +1,18 @@
 import { useState } from "react";
 
-export default function Input({ label, type, initValue }) {
+export default function Input({ id, label, type, initValue, onValueChange }) {
     const [value, setValue] = useState(initValue);
-    const labelToId = label.split(' ').join('-').toLowerCase();
 
     function handleValueChange(event) {
         setValue(event.target.value);
+        onValueChange(id, event.target.value);
     }
 
     return (
         <>
-            <label htmlFor={labelToId}>{label}</label>
+            <label htmlFor={id}>{label}</label>
             <input
-                id={labelToId}
+                id={id}
                 type={type}
                 value={value}
                 onChange={handleValueChange}

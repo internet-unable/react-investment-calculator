@@ -1,23 +1,50 @@
+import { useState } from "react";
 import Input from "./../Input/Input.jsx";
+import Table from "./../Table/Table.jsx";
 
-export default function Content({ children }) {
+const objOfId = {
+    initialInvestment: 'initialInvestment',
+    annualInvestment: 'annualInvestment',
+    expectedReturn: 'expectedReturn',
+    duration: 'duration'
+}
+
+export default function Content() {
+    const [ params, setParams ] = useState({
+        [objOfId.initialInvestment]: 10000,
+        [objOfId.annualInvestment]: 1200,
+        [objOfId.expectedReturn]: 6,
+        [objOfId.duration]: 10
+    });
+
+    function handleValueChange(id, value) {
+        setParams(params => ({
+            ...params,
+            [id]: +value
+        }));
+    }
+
     return (
         <>
             <div id="user-input">
                 <ul className="input-group">
                     <li>
                         <Input
+                            id={objOfId.initialInvestment}
                             label="Initial investment"
                             type="number"
-                            initValue="10000"
+                            initValue={params.initialInvestment}
+                            onValueChange={handleValueChange}
                         />
                     </li>
                     
                     <li>
                         <Input
+                            id={objOfId.annualInvestment}
                             label="Annual investment"
                             type="number"
-                            initValue="1200"
+                            initValue={params.annualInvestment}
+                            onValueChange={handleValueChange}
                         />
                     </li>
                 </ul>
@@ -25,23 +52,27 @@ export default function Content({ children }) {
                 <ul className="input-group">
                     <li>
                         <Input
+                            id={objOfId.expectedReturn}
                             label="Expected return"
                             type="number"
-                            initValue="6"
+                            initValue={params.expectedReturn}
+                            onValueChange={handleValueChange}
                         />
                     </li>
 
                     <li>
                         <Input
+                            id={objOfId.duration}
                             label="Duration"
                             type="number"
-                            initValue="10"
+                            initValue={params.duration}
+                            onValueChange={handleValueChange}
                         />
                     </li>
                 </ul>
             </div>
 
-            {children}
+            <Table data={params} />
         </>
     );
 }
