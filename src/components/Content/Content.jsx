@@ -17,7 +17,7 @@ export default function Content() {
         [objOfId.duration]: 10
     });
 
-    function handleValueChange(id, value) {
+    function handleUserInputChange(id, value) {
         setUserInput(userInput => ({
             ...userInput,
             [id]: +value
@@ -33,7 +33,7 @@ export default function Content() {
                             id={objOfId.initialInvestment}
                             label="Initial investment"
                             initValue={userInput.initialInvestment}
-                            onValueChange={handleValueChange}
+                            onUserInputChange={handleUserInputChange}
                         />
                     </li>
                     
@@ -42,7 +42,7 @@ export default function Content() {
                             id={objOfId.annualInvestment}
                             label="Annual investment"
                             initValue={userInput.annualInvestment}
-                            onValueChange={handleValueChange}
+                            onUserInputChange={handleUserInputChange}
                         />
                     </li>
                 </ul>
@@ -53,7 +53,7 @@ export default function Content() {
                             id={objOfId.expectedReturn}
                             label="Expected return"
                             initValue={userInput.expectedReturn}
-                            onValueChange={handleValueChange}
+                            onUserInputChange={handleUserInputChange}
                         />
                     </li>
 
@@ -62,7 +62,7 @@ export default function Content() {
                             id={objOfId.duration}
                             label="Duration"
                             initValue={userInput.duration}
-                            onValueChange={handleValueChange}
+                            onUserInputChange={handleUserInputChange}
                         />
                     </li>
                 </ul>
