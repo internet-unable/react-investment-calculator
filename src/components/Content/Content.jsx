@@ -18,10 +18,12 @@ export default function Content() {
     });
 
     function handleUserInputChange(id, value) {
-        setUserInput(userInput => ({
-            ...userInput,
-            [id]: +value
-        }));
+        setUserInput(prevUserInput => {
+            return {
+                ...prevUserInput,
+                [id]: +value
+            }
+        });
     }
 
     return (
